@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from engine import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/validate", views.validar_gasto_api, name="validar_gasto_api"),
 ]
