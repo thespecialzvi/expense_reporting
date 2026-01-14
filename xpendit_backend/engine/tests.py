@@ -23,7 +23,6 @@ class TestValidacionGastos(TestCase):
         self.assertEqual(resultado["status"], "APROBADO")
         # No se espera ninguna alerta
         self.assertEqual(resultado["alertas"], [])
-        print("PASSED 1/6\n")
 
     def test_antiguedad_pendiente(self):
         """
@@ -36,7 +35,6 @@ class TestValidacionGastos(TestCase):
         # Debería dar una alerta por LIMITE_ANTIGUEDAD
         codigos_alerta = [alerta["codigo"] for alerta in resultado["alertas"]]
         self.assertIn("LIMITE_ANTIGUEDAD", codigos_alerta)
-        print("PASSED 2/6\n")
 
     def test_antiguedad_rechazada(self):
         """
@@ -50,7 +48,6 @@ class TestValidacionGastos(TestCase):
         # Emitir alerta por LIMITE_ANTIGUEDAD
         codigos_alerta = [alerta["codigo"] for alerta in resultado["alertas"]]
         self.assertIn("LIMITE_ANTIGUEDAD", codigos_alerta)
-        print("PASSED 3/6\n")
 
     def test_limite_categoria_food(self):
         """
@@ -78,7 +75,6 @@ class TestValidacionGastos(TestCase):
         self.assertEqual(res3["status"], "RECHAZADO")
         self.assertTrue(any(alerta["codigo"] == "LIMITE_CATEGORIA" for alerta in res3["alertas"]))
 
-        print("PASSED 4/6\n")
 
     def test_centro_costos_prohibiciones(self):
         """
@@ -90,7 +86,6 @@ class TestValidacionGastos(TestCase):
         self.assertEqual(result["status"], "RECHAZADO")
         codigos_alerta = [alerta["codigo"] for alerta in result["alertas"]]
         self.assertIn("POLITICA_CENTRO_COSTO", codigos_alerta)
-        print("PASSED 5/6\n")
 
     def test_multiples_infracciones(self):
         """
@@ -105,6 +100,5 @@ class TestValidacionGastos(TestCase):
         codigos = {alerta["codigo"] for alerta in resultado["alertas"]}
         # Debe contener todas las alertas relevantes
         self.assertTrue({"LIMITE_ANTIGUEDAD", "LIMITE_CATEGORIA", "POLITICA_CENTRO_COSTO"}.issubset(codigos))
-        print("PASSED 6/6\n")
 
 

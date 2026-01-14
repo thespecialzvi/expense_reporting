@@ -1,6 +1,7 @@
 from datetime import datetime
 from engine.models import Gasto
 from engine import policy
+from engine.exchange import get_tasa_cambio
 
 def validar_gasto(gasto: Gasto) -> dict:
     """
@@ -40,19 +41,16 @@ def validar_gasto(gasto: Gasto) -> dict:
     moneda_base = policy.POLITICA["moneda_base"] # "USD"
     mnt_en_usd = gasto.monto
     if gasto.moneda != moneda_base:
-        # Dado que en esta primera parte no debemos llamar a una API externa,
-        # simulamos las tasas de conversión.
-        # Por ejemplo: 1 USD = 800 CLP = 20 MXN = 0.85 EUR
-        tasas_conversion = {"CLP": 1/800, "MXN": 1/20, "EUR": 1/0.85}
-        if gasto.moneda in tasas_conversion:
-            mnt_en_usd = gasto.monto * tasas_conversion[gasto.moneda]
-        else:
-            # Si la moneda es desconocida, por seguridad marcar como pendiente de revisión
+        tasa = get_tasa_cambio(gasto.moneda, fecha=gasto.fecha)
+        if tasa is None:
+            # Si no pudimos consultar la tasa, marcar para revisión manual
             estados.append("PENDIENTE")
             alertas.append({
-                "codigo": "MONEDA_DESCONOCIDA",
-                "mensaje": f"Moneda {gasto.moneda} desconocida, no se puede convertir a USD"
+                "codigo": "ERROR_TASA_CAMBIO",
+                "mensaje": f"No se pudo obtener tasa de cambio para {gasto.moneda}"
             })
+        else:
+            mnt_en_usd = gasto.monto * tasa
     # Aplicación de límites por categoría a través de mnt_en_usd
     limites_cat = policy.POLITICA["limites_por_categoria"]
     if gasto.categoria in limites_cat:
