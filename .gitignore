@@ -1,0 +1,86 @@
+# SECRETS / ENVIRONMENT
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Packaging / Builds
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+pip-wheel-metadata/
+
+# Tests / Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Type checker / linters
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Collected static files (generated)
+staticfiles/
+
+# Uploaded media (if you ever add it)
+media/
+
+# Node / React
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# CRA Build output
+build/
+
+# Common tool caches
+.cache/
+.parcel-cache/
+
+# IDES / Editors
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+
+# OS Junk
+.DS_Store
+Thumbs.db
+
+# Optional: demo video artifacts (usually better as a link)
+*.mp4
+*.mov
+*.avi
+*.mkv
