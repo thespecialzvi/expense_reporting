@@ -84,3 +84,6 @@ Thumbs.db
 *.mov
 *.avi
 *.mkv
+
+# Spreadsheets
+.csv
