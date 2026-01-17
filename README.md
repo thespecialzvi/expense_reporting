@@ -30,8 +30,8 @@ Este repositorio contiene una implementación del desafío técnico de Xpendit p
 1) Clona el repositorio y entra al proyecto:
 
 ```bash
-git clone <repo_url>
-cd <repo>
+git clone git@github.com:thespecialzvi/expense_reporting.git
+cd expense_reporting
 ```
 
 2) Crea un archivo `.env` en la raíz del backend (si aplica) con tu App ID:
