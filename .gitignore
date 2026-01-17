@@ -48,7 +48,7 @@ db.sqlite3
 db.sqlite3-journal
 
 # Collected static files (generated)
-staticfiles/
+# staticfiles/
 
 # Uploaded media (if you ever add it)
 media/

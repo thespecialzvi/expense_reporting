@@ -49,7 +49,7 @@ from engine.validator import validar_gasto
 
 
 OXR_BASE_URL = "https://openexchangerates.org/api"
-DEFAULT_ANALYSIS_MD = "ANALISIS.md"
+DEFAULT_ANALYSIS_MD = "../output/ANALISIS.md"
 DEFAULT_CSV_NAME = "../staticfiles/gastos_historicos.csv"
 
 
