@@ -50,7 +50,7 @@ def validar_gasto(gasto: Gasto) -> dict:
                 "mensaje": f"No se pudo obtener tasa de cambio para {gasto.moneda}"
             })
         else:
-            mnt_en_usd = gasto.monto * tasa
+            mnt_en_usd = gasto.monto / tasa
     # Aplicación de límites por categoría a través de mnt_en_usd
     limites_cat = policy.POLITICA["limites_por_categoria"]
     if gasto.categoria in limites_cat:

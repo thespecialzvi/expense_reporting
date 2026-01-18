@@ -18,10 +18,10 @@ def get_tasa_cambio(moneda: str, fecha: date = None) -> float:
         if fecha:
             # Endpoint de tipos de cambio históricos
             datestr = fecha.strftime("%Y-%m-%d")
-            url = f"https://openexchangerates.org/api/historical/{datestr}.json?app_id={OXR_APP_ID}%base={MONEDA_BASE}&symbols={moneda}"
+            url = f"https://openexchangerates.org/api/historical/{datestr}.json?app_id={OXR_APP_ID}&base={MONEDA_BASE}&symbols={moneda}"
         else:
             # Endpoint de tasas más recientes
-            url = f"https://openexchangerates.org/api/latest.json?app_id={OXR_APP_ID}%base={MONEDA_BASE}&symbols={moneda}"
+            url = f"https://openexchangerates.org/api/latest.json?app_id={OXR_APP_ID}&base={MONEDA_BASE}&symbols={moneda}"
         response = requests.get(url)
         data = response.json()
         # La API retornará el valor de las tasas como un diccionario dentro de 'rates'
