@@ -34,7 +34,7 @@ git clone git@github.com:thespecialzvi/expense_reporting.git
 cd expense_reporting
 ```
 
-2) Crea un archivo `.env` en la raíz del backend (si aplica) con tu App ID:
+2) Crea un archivo `.env` en la raíz del backend (si aplica) con tu App ID de OpenExchangeRates.org (obtenida al registrarse):
 
 ```env
 OXR_APP_ID=TU_APP_ID_AQUI
