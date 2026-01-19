@@ -9,7 +9,7 @@ Este repositorio contiene una implementación del desafío técnico de Xpendit p
 - **Procesa un lote** desde `gastos_historicos.csv`, detecta anomalías y genera un reporte (Parte 3).
 - Incluye una **UI mínima** en React (Vite + Yarn) para probar el endpoint manualmente (Parte 4).
 
-> Nota: La UI es intencionalmente simple. El foco es “shipping code that works”.
+> Nota: La UI es intencionalmente simple. El foco es netamente operacional.
 
 ---
 
